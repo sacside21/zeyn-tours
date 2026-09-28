@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover Zanzibar with Zeyn Tours. Explore island tours, travel guidance and international education opportunities.">
+  <title>Zeyn Tours | Travel Beyond Borders</title>
+  <style>
+    :root{--green:#064e3b;--green2:#0b6b50;--maroon:#781d36;--cream:#fbf8f2;--ink:#1e293b;--muted:#64748b;--white:#fff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:82px}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+    a{color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:20;background:var(--green);color:var(--white);box-shadow:0 2px 12px #0002}
+    .nav-wrap{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{font-size:1.35rem;font-weight:800;letter-spacing:.5px;text-decoration:none;white-space:nowrap}
+    .brand span{color:#f4c879}
+    nav{display:flex;align-items:center;justify-content:flex-end;gap:18px;flex-wrap:wrap}
+    nav a{text-decoration:none;font-size:.95rem;font-weight:700;color:#fff}
+    nav a:hover,nav a:focus{color:#f4c879}
+    .hero{min-height:530px;display:grid;place-items:center;text-align:center;color:white;background:linear-gradient(100deg,#052e26d9,#052e2670),url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1800&q=85') center/cover}
+    .hero-inner{padding:85px 0}
+    .eyebrow{font-size:.9rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#f4d49a}
+    h1,h2,h3,p{margin-top:0}
+    .hero h1{font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.05;margin:10px 0 18px}
+    .hero p{font-size:clamp(1rem,2.3vw,1.25rem);max-width:700px;margin:0 auto 18px}
+    .languages{font-weight:700;letter-spacing:.4px;margin-bottom:20px!important}
+    .btn{display:inline-block;border:0;border-radius:7px;padding:12px 22px;background:var(--maroon);color:#fff;text-decoration:none;font-weight:700;cursor:pointer;transition:transform .15s,background .15s}
+    .btn:hover,.btn:focus{background:#5f172b;transform:translateY(-1px)}
+    .btn-outline{background:transparent;border:2px solid white;margin-left:8px}
+    .btn-outline:hover{background:white;color:var(--green)}
+    section{padding:66px 0}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 30px}
+    .section-head h2{color:var(--green);font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:8px}
+    .section-head p{color:var(--muted);margin-bottom:0}
+    .about{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center}
+    .about-image{width:100%;height:340px;object-fit:cover;border-radius:14px;box-shadow:0 12px 30px #0002}
+    .about h2{color:var(--green);font-size:2rem}
+    .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+    .card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 5px 22px #0f172a12;border:1px solid #e9e5dc}
+    .card-body{padding:20px}
+    .card h3{color:var(--green);margin-bottom:8px;font-size:1.15rem}
+    .card p{color:var(--muted);margin-bottom:12px}
+    .price{font-weight:800;color:var(--maroon)}
+    .tour-img{width:100%;height:180px;object-fit:cover;display:block}
+    .soft{background:#f0eee5}
+    .service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .service-icon{font-size:2rem;margin-bottom:8px}
+    .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .gallery img{width:100%;height:230px;object-fit:cover;border-radius:12px}
+    .booking-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:start}
+    .booking-note{background:var(--green);color:white;padding:26px;border-radius:12px}
+    .booking-note h3{font-size:1.4rem}
+    form{background:white;border:1px solid #e9e5dc;border-radius:12px;padding:24px;box-shadow:0 5px 22px #0f172a0d}
+    label{display:block;font-weight:700;margin:10px 0 5px}
+    input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:7px;font:inherit;background:white;color:var(--ink)}
+    textarea{min-height:110px;resize:vertical}
+    input:focus,select:focus,textarea:focus{outline:2px solid #0b6b5066;border-color:var(--green2)}
+    form .btn{width:100%;margin-top:16px;font-size:1rem}
+    .contact{background:var(--green);color:white;text-align:center}
+    .contact h2{font-size:2rem}
+    .contact-grid{display:flex;justify-content:center;gap:26px;flex-wrap:wrap}
+    .contact a{color:#f4d49a}
+    footer{background:#04372b;color:#e7eee9;padding:18px 0;text-align:center;font-size:.9rem}
+    .wa{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#20c76a;color:white;text-decoration:none;font-size:26px;box-shadow:0 4px 15px #0003;z-index:30}
+    .small{font-size:.85rem;color:var(--muted)}
+    @media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.about,.booking-layout{grid-template-columns:1fr}.about-image{height:280px}}
+    @media(max-width:620px){.nav-wrap{padding:12px 0;display:block;text-align:center}.brand{display:block;margin-bottom:8px}nav{justify-content:center;gap:7px 14px}nav a{font-size:.88rem}.hero{min-height:470px}.hero-inner{padding:70px 0}.btn-outline{margin:10px 0 0}section{padding:48px 0}.cards,.service-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.gallery img{height:160px}.card-body{padding:17px}form{padding:18px}}
+  </style>
+</head>
+<body>
+  <header id="home">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">🌴 ZEYN <span>TOURS</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#tours">Tours</a><a href="#education">Education</a><a href="#booking">Booking</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="eyebrow">Welcome to Zanzibar</div>
+        <h1>Explore Zanzibar</h1>
+        <p>Discover turquoise waters, rich culture, unforgettable island adventures and the warm hospitality of Zanzibar.</p>
+        <p class="languages">Kiswahili&nbsp; • &nbsp;English&nbsp; • &nbsp;العربية&nbsp; • &nbsp;Français</p>
+        <a class="btn" href="#tours">Explore Our Tours</a>
+        <a class="btn btn-outline" href="#booking">Book Your Experience</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+        <div>
+          <div class="eyebrow" style="color:var(--maroon)">Travel Beyond Borders</div>
+          <h2>Your Journey Starts With Zeyn Tours</h2>
+          <p>Zeyn Tours is a Zanzibar-based travel and tourism service helping visitors explore the island's natural beauty, history and culture.</p>
+          <p>From guided excursions to practical travel and education guidance, we aim to make every journey welcoming, memorable and easier to plan.</p>
+          <a class="btn" href="#contact">Get in Touch</a>
+        </div>
+        <img class="about-image" src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1000&q=85" alt="Tropical island beach in Zanzibar">
+      </div>
+    </section>
+
+    <section id="tours" class="soft">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow" style="color:var(--maroon)">Discover the Island</div><h2>Popular Tour Packages</h2><p>Choose an experience and contact us to confirm availability, details and final pricing.</p></div>
+        <div class="cards">
+          <article class="card"><img class="tour-img" src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=800&q=80" alt="Historic coastal town"><div class="card-body"><h3>Stone Town Tour</h3><p>Explore the history, architecture, markets and culture of Zanzibar's historic town.</p><div class="price">From $25 per person</div></div></article>
+          <article class="card"><img class="tour-img" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Snorkeling in clear blue sea"><div class="card-body"><h3>Mnemba Island</h3><p>Enjoy a marine adventure with clear waters, snorkeling and beautiful ocean views.</p><div class="price">From $45 per person</div></div></article>
+          <article class="card"><img class="tour-img" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80" alt="Blue ocean and waves"><div class="card-body"><h3>Safari Blue</h3><p>Spend a day discovering sandbanks, lagoons and the stunning Zanzibar coastline.</p><div class="price">From $65 per person</div></div></article>
+          <article class="card"><img class="tour-img" src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80" alt="Island coast"><div class="card-body"><h3>Prison Island</h3><p>Visit the island, learn about its history and see the famous giant tortoises.</p><div class="price">From $40 per person</div></div></article>
+        </div>
+        <p class="small" style="text-align:center;margin-top:18px">Prices shown are indicative starting rates and must be confirmed before booking.</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow" style="color:var(--maroon)">Learn With Us</div><h2>Education & Travel Guidance</h2><p>Practical information to help you prepare for learning and opportunities beyond borders.</p></div>
+        <div class="service-grid">
+          <article class="card"><div class="card-body"><div class="service-icon">🎓</div><h3>Study Abroad</h3><p>Explore international study pathways, admission preparation and general guidance on application requirements.</p></div></article>
+          <article class="card"><div class="card-body"><div class="service-icon">🛂</div><h3>Visa & Travel Education</h3><p>Understand common travel-document steps and where to check official visa requirements for your destination.</p></div></article>
+          <article class="card"><div class="card-body"><div class="service-icon">🌍</div><h3>Travel & Work Abroad</h3><p>Learn about travel and work pathways in destinations such as the UAE, Oman, Canada and the United Kingdom. Eligibility depends on official rules.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="gallery">
+      <div class="container">
+        <div class="section-head"><h2>Explore Zanzibar</h2><p>Island views, coastal beauty and memorable experiences.</p></div>
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Sunny tropical beach">
+          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80" alt="Island shoreline">
+          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Clear ocean for water activities">
+        </div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow" style="color:var(--maroon)">Plan Your Visit</div><h2>Book Your Tour</h2><p>Send us your preferred tour and travel details. We will help you confirm the arrangements.</p></div>
+        <div class="booking-layout">
+          <div class="booking-note"><h3>Let's plan your Zanzibar experience</h3><p>Tell us which tour interests you, when you would like to visit and how many guests will be travelling.</p><p><strong>Languages:</strong><br>Kiswahili • English • Arabic • French</p><p>Booking requests currently open a WhatsApp message. Email booking integration can be added as a later step.</p></div>
+          <form id="booking-form">
+            <label for="name">Full Name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+            <label for="phone">Phone / WhatsApp Number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Your contact number" required>
+            <label for="tour">Choose a Tour</label><select id="tour" name="tour" required><option value="">Select a package</option><option>Stone Town Tour</option><option>Mnemba Island</option><option>Safari Blue</option><option>Prison Island</option><option>Other / Custom Tour</option></select>
+            <label for="date">Preferred Date</label><input id="date" name="date" type="date">
+            <label for="guests">Number of Guests</label><input id="guests" name="guests" type="number" min="1" value="1" required>
+            <label for="message">Additional Details</label><textarea id="message" name="message" placeholder="Tell us any other preferences or questions"></textarea>
+            <button class="btn" type="submit">Send Booking Request via WhatsApp</button>
+            <p class="small" style="margin:10px 0 0">Submitting opens WhatsApp with your request for you to review and send.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-head"><h2 style="color:white">Contact Zeyn Tours</h2><p style="color:#e4eee9">We would be happy to help you plan your journey.</p></div>
+        <div class="contact-grid">
+          <div>📍 Kituo cha Daladala Airport, Zanzibar</div>
+          <div>📧 <a href="mailto:sayyedkaka@gmail.com">sayyedkaka@gmail.com</a></div>
+          <div>📞 <a href="tel:+255656506868">+255 656 506 868</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container">© 2026 Zeyn Tours. Travel Beyond Borders.</div></footer>
+  <a class="wa" href="https://wa.me/255656506868" target="_blank" rel="noopener noreferrer" aria-label="Contact Zeyn Tours on WhatsApp">✆</a>
+  <script>
+    document.getElementById('booking-form').addEventListener('submit',function(event){
+      event.preventDefault();
+      const data=new FormData(this);
+      const message=[
+        'Hello Zeyn Tours, I would like to request a booking.',
+        'Name: '+data.get('name'),
+        'Phone: '+data.get('phone'),
+        'Tour: '+data.get('tour'),
+        'Preferred date: '+(data.get('date')||'Not specified'),
+        'Guests: '+data.get('guests'),
+        'Additional details: '+(data.get('message')||'None')
+      ].join('\n');
+      window.open('https://wa.me/255656506868?text='+encodeURIComponent(message),'_blank','noopener');
+    });
+  </script>
+</body>
+</html>
