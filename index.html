@@ -234,7 +234,10 @@
       set('.skip-link',e.skip);set('#tours .section-head p',e.tourIntro);set('#tours .small',e.tourFoot);set('#education .section-head p',e.eduIntro);set('#gallery .section-head p',e.galleryIntro);set('#booking .eyebrow',e.bookingEyebrow);set('#booking .section-head p',e.bookingIntro);set('.booking-note h3',e.noteTitle);set('.booking-note p:nth-of-type(1)',e.noteP);set('.booking-note p:nth-of-type(3)',e.noteLast);set('#contact .section-head p',e.contactIntro);set('footer .container',e.footer);
       document.getElementById('name').placeholder=e.fullPlaceholder;document.getElementById('email').placeholder=e.emailPlaceholder;document.getElementById('phone').placeholder=e.phonePlaceholder;document.querySelector('#tour option[value=""]').textContent=e.tourOption;document.querySelector('#tour option:last-child').textContent=e.otherOption;document.getElementById('message').placeholder=e.messagePlaceholder;set('#booking-form .small',e.submitNote);set('#booking-privacy',e.privacy);
     }
-    languageSelect.addEventListener('change',function(){setLanguage(this.value)});
+    const nextField=document.querySelector('#booking-form input[name="_next"]');
+    function syncThankYouLanguage(lang){if(nextField)nextField.value='https://sacside21.github.io/zeyn-tours/thank-you.html?lang='+encodeURIComponent(lang)}
+    languageSelect.addEventListener('change',function(){setLanguage(this.value);syncThankYouLanguage(this.value)});
+    syncThankYouLanguage(languageSelect.value);
 
     // Prevent visitors from selecting a date in the past.
     const preferredDate=document.getElementById('date');
