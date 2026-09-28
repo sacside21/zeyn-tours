@@ -265,7 +265,7 @@
       fr:{nav:['Accueil','Excursions','Billets','Réservation','Visa et éducation','Voyage et travail','À propos','Contact'],welcome:'Bienvenue à Zanzibar',hero:'Explorez Zanzibar',heroDesc:'Découvrez les eaux turquoise, la richesse culturelle, les aventures inoubliables et l’hospitalité chaleureuse de Zanzibar.',tourCta:'Voir nos excursions',bookCta:'Réserver votre expérience',aboutTitle:'Votre voyage commence avec Zeyn Tours',aboutP1:'Zeyn Tours est un service de tourisme basé à Zanzibar qui aide les visiteurs à découvrir la beauté naturelle, l’histoire et la culture de l’île.',aboutP2:'Des excursions guidées aux conseils pratiques sur les voyages et les études, nous souhaitons rendre chaque voyage accueillant et facile à organiser.',aboutBtn:'Nous contacter',tourTitle:'Forfaits d’excursions populaires',eduTitle:'Éducation et conseils de voyage',galleryTitle:'Explorez Zanzibar',bookingTitle:'Réservez votre excursion',contactTitle:'Contacter Zeyn Tours',name:'Nom complet',email:'Adresse e-mail',phone:'Téléphone / WhatsApp',tour:'Choisir une excursion',date:'Date souhaitée',guests:'Nombre de voyageurs',message:'Informations supplémentaires',submit:'Envoyer la demande par e-mail'}
     };
     const languageSelect=document.getElementById('site-language');
-    function setLanguage(lang){
+    function setLanguageCore(lang){
       const t=languageText[lang]||languageText.en;
       document.documentElement.lang=lang;
       const textDirection=lang==='ar'?'rtl':'ltr';
@@ -310,6 +310,17 @@
       set('.language-intro h3',sc.learnTitle);set('.language-intro p',sc.learnIntro);document.querySelectorAll('.language-tile').forEach((tile,i)=>{const x=sc.languages[i];if(x){const b=tile.querySelector('b'),small=tile.querySelector('small');if(b)b.textContent=x[0];if(small)small.textContent=x[1]}});set('.education-subhead h2',sc.guidanceTitle);set('.education-subhead p',sc.guidanceIntro);
       set('#faq .section-head h2',e.faqTitle);set('#faq .section-head p',e.faqIntro);document.querySelectorAll('#faq .tour-details').forEach((item,i)=>{const q=e.faqItems[i];if(q){const summary=item.querySelector('summary'),p=item.querySelector('p');if(summary)summary.textContent=q[0];if(p)p.textContent=q[1]}});set('.skip-link',e.skip);set('#tours .section-head p',e.tourIntro);set('#tours .small',e.tourFoot);set('#education .section-head p',e.eduIntro);set('#gallery .section-head p',e.galleryIntro);set('#booking .eyebrow',e.bookingEyebrow);set('#booking .section-head p',e.bookingIntro);set('.booking-note h3',e.noteTitle);set('.booking-note p:nth-of-type(1)',e.noteP);set('.booking-note p:nth-of-type(3)',e.noteLast);set('#contact .section-head p',e.contactIntro);
       const nameInput=document.getElementById('name'),emailInput=document.getElementById('email'),phoneInput=document.getElementById('phone'),messageInput=document.getElementById('message'),firstTourOption=document.querySelector('#tour option[value=""]'),lastTourOption=document.querySelector('#tour option:last-child');if(nameInput)nameInput.placeholder=e.fullPlaceholder;if(emailInput)emailInput.placeholder=e.emailPlaceholder;if(phoneInput)phoneInput.placeholder=e.phonePlaceholder;if(firstTourOption)firstTourOption.textContent=e.tourOption;if(lastTourOption)lastTourOption.textContent=e.otherOption;if(messageInput)messageInput.placeholder=e.messagePlaceholder;set('#booking-form .small',e.submitNote);set('#booking-privacy',e.privacy);
+    }
+    function setLanguage(lang){
+      try {
+        setLanguageCore(lang);
+        return true;
+      } catch(error) {
+        console.error('Zeyn Tours language switch failed for '+lang+':',error);
+        languageSelect.value='en';
+        try { setLanguageCore('en'); } catch(fallbackError) { console.error('Zeyn Tours English fallback failed:',fallbackError); }
+        return false;
+      }
     }
     const replyToField=document.querySelector('#booking-form input[name="_replyto"]');
     const bookingForm=document.getElementById('booking-form');
