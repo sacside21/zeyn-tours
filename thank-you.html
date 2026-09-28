@@ -45,5 +45,7 @@
       document.getElementById('whatsapp-link').textContent=t.whatsapp;
     }
     languagePicker.addEventListener('change',function(){setThankLanguage(this.value)});
+    const requestedLanguage=new URLSearchParams(window.location.search).get('lang');
+    if(['en','sw','ar','fr'].includes(requestedLanguage)){languagePicker.value=requestedLanguage;setThankLanguage(requestedLanguage)}
   </script></body>
 </html>
