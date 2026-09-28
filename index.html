@@ -274,6 +274,8 @@
       button.addEventListener('click',function(){
         document.getElementById('tour').value=this.dataset.tour;
         document.getElementById('tour').dispatchEvent(new Event('change', { bubbles: true }));
+        document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('name').focus({ preventScroll: true });
       });
     });
     const whatsappLink=document.querySelector('a.wa');
