@@ -271,6 +271,28 @@
         document.getElementById('tour').value=this.dataset.tour;
       });
     });
+    const whatsappLink=document.querySelector('a.wa');
+    const whatsappMessages={
+      en:'Hello Zeyn Tours, I would like to enquire about '+(document.getElementById('tour').value||'your tour packages')+'.',
+      sw:'Habari Zeyn Tours, ningependa kupata maelezo kuhusu '+(document.getElementById('tour').value||'vifurushi vyenu vya ziara')+'.',
+      ar:'مرحباً زين تورز، أود الاستفسار عن '+(document.getElementById('tour').value||'باقات الجولات لديكم')+'.',
+      fr:'Bonjour Zeyn Tours, je souhaiterais avoir des informations sur '+(document.getElementById('tour').value||'vos forfaits d’excursions')+'.'
+    };
+    function syncWhatsAppLink(){
+      if(!whatsappLink)return;
+      const lang=languageSelect.value||'en';
+      const tour=document.getElementById('tour').value;
+      const messages={
+        en:'Hello Zeyn Tours, I would like to enquire about '+(tour||'your tour packages')+'.',
+        sw:'Habari Zeyn Tours, ningependa kupata maelezo kuhusu '+(tour||'vifurushi vyenu vya ziara')+'.',
+        ar:'مرحباً زين تورز، أود الاستفسار عن '+(tour||'باقات الجولات لديكم')+'.',
+        fr:'Bonjour Zeyn Tours, je souhaiterais avoir des informations sur '+(tour||'vos forfaits d’excursions')+'.'
+      };
+      whatsappLink.href='https://wa.me/255656506868?text='+encodeURIComponent(messages[lang]||messages.en);
+    }
+    languageSelect.addEventListener('change',syncWhatsAppLink);
+    document.getElementById('tour').addEventListener('change',syncWhatsAppLink);
+    syncWhatsAppLink();
   </script>
 </body>
 </html>
