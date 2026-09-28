@@ -247,7 +247,11 @@
     }
     const replyToField=document.querySelector('#booking-form input[name="_replyto"]');
     const bookingForm=document.getElementById('booking-form');
-    bookingForm.addEventListener('submit',function(){if(replyToField)replyToField.value=document.getElementById('email').value.trim()});
+    const subjectField=document.querySelector('#booking-form input[name="_subject"]');
+    function syncBookingSubject(){const selectedTour=document.getElementById('tour').value; if(subjectField)subjectField.value='Zeyn Tours Booking Request'+(selectedTour?' - '+selectedTour:'')}
+    bookingForm.addEventListener('submit',function(){if(replyToField)replyToField.value=document.getElementById('email').value.trim();syncBookingSubject()});
+    document.getElementById('tour').addEventListener('change',syncBookingSubject);
+    syncBookingSubject();
     const nextField=document.querySelector('#booking-form input[name="_next"]');
     const autoResponseField=document.querySelector('#booking-form input[name="_autoresponse"]');
     const autoResponses={
