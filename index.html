@@ -62,7 +62,7 @@
     .service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
     .service-icon{font-size:2rem;margin-bottom:8px}
     .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-    .gallery img{width:100%;height:230px;object-fit:cover;border-radius:12px}
+    .gallery-card{position:relative;overflow:hidden;margin:0;border-radius:12px;min-width:0;background:#073c2d;box-shadow:0 5px 18px #102b1b18}.gallery-card img{display:block;width:100%;height:250px;object-fit:cover;transition:transform .35s ease}.gallery-card:hover img{transform:scale(1.045)}.gallery-card figcaption{display:flex;flex-direction:column;gap:4px;padding:13px 15px;color:#fff;background:#073c2d}.gallery-card figcaption strong{font-size:1rem;color:#f3d78d}.gallery-card figcaption span{font-size:.82rem;color:#e0ebe5}@media(max-width:620px){.gallery{grid-template-columns:1fr 1fr;gap:10px}.gallery-card img{height:160px}.gallery-card figcaption{padding:10px}.gallery-card figcaption strong{font-size:.9rem}.gallery-card figcaption span{font-size:.74rem}}
     .payment-note{margin-top:18px;padding:15px;border-left:4px solid #b58a3b;background:#f4f7f2;border-radius:8px;color:#173d30}.payment-note strong{display:block;margin-bottom:7px;color:#073c2d}.payment-note p{margin:0;font-size:.9rem;line-height:1.55}
     .booking-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:start}
     .booking-note{background:var(--green);color:white;padding:26px;border-radius:12px}
@@ -182,9 +182,9 @@
       <div class="container">
         <div class="section-head"><h2>Explore Zanzibar</h2><p>Island views, coastal beauty and memorable experiences.</p></div>
         <div class="gallery">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Sunny tropical beach">
-          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80" alt="Island shoreline">
-          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Clear ocean for water activities">
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Sunny tropical beach"><figcaption><strong>Island Beaches</strong><span>Relax along the beautiful coast</span></figcaption></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80" alt="Island shoreline"><figcaption><strong>Coastal Escapes</strong><span>Enjoy the ocean and island scenery</span></figcaption></figure>
+          <figure class="gallery-card"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Clear ocean for water activities"><figcaption><strong>Ocean Adventures</strong><span>Discover marine experiences</span></figcaption></figure>
         </div>
       </div>
     </section>
