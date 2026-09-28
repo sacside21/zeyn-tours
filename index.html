@@ -27,6 +27,10 @@
     nav{display:flex;align-items:center;justify-content:flex-end;gap:18px;flex-wrap:wrap}
     nav a{text-decoration:none;font-size:.95rem;font-weight:700;color:#fff}
     nav a:hover,nav a:focus{color:#f4c879}
+    .language-picker{margin:0;min-width:112px}
+    .language-picker select{padding:8px 9px;border:1px solid #ffffff66;border-radius:7px;background:#fff;color:var(--green);font-weight:700;font-size:.88rem}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:620px){.language-picker{display:inline-block;margin-top:10px}.language-picker select{max-width:100%}}
     .hero{min-height:530px;display:grid;place-items:center;text-align:center;color:white;background:linear-gradient(100deg,#052e26d9,#052e2670),url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1800&q=85') center/cover}
     .hero-inner{padding:85px 0}
     .eyebrow{font-size:.9rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#f4d49a}
@@ -86,6 +90,11 @@
       <nav aria-label="Main navigation">
         <a href="#home">Home</a><a href="#about">About</a><a href="#tours">Tours</a><a href="#education">Education</a><a href="#booking">Booking</a><a href="#contact">Contact</a>
       </nav>
+      <label class="language-picker" for="site-language"><span class="sr-only">Choose language</span>
+        <select id="site-language" aria-label="Choose website language">
+          <option value="en">🇬🇧 English</option><option value="sw">🇹🇿 Kiswahili</option><option value="ar">🇸🇦 العربية</option><option value="fr">🇫🇷 Français</option>
+        </select>
+      </label>
     </div>
   </header>
 
@@ -183,6 +192,29 @@
   <footer><div class="container">© 2026 Zeyn Tours. Travel Beyond Borders.</div></footer>
   <a class="wa" href="https://wa.me/255656506868" target="_blank" rel="noopener noreferrer" aria-label="Contact Zeyn Tours on WhatsApp">✆</a>
   <script>
+    // Simple language switcher for key navigation, headings and booking controls.
+    const languageText={
+      en:{nav:['Home','About','Tours','Education','Booking','Contact'],welcome:'Welcome to Zanzibar',hero:'Explore Zanzibar',heroDesc:'Discover turquoise waters, rich culture, unforgettable island adventures and the warm hospitality of Zanzibar.',tourCta:'Explore Our Tours',bookCta:'Book Your Experience',aboutTitle:'Your Journey Starts With Zeyn Tours',aboutP1:"Zeyn Tours is a Zanzibar-based travel and tourism service helping visitors explore the island's natural beauty, history and culture.",aboutP2:'From guided excursions to practical travel and education guidance, we aim to make every journey welcoming, memorable and easier to plan.',aboutBtn:'Get in Touch',tourTitle:'Popular Tour Packages',eduTitle:'Education & Travel Guidance',galleryTitle:'Explore Zanzibar',bookingTitle:'Book Your Tour',contactTitle:'Contact Zeyn Tours',name:'Full Name',phone:'Phone / WhatsApp Number',tour:'Choose a Tour',date:'Preferred Date',guests:'Number of Guests',message:'Additional Details',submit:'Send Booking Request via WhatsApp'},
+      sw:{nav:['Mwanzo','Kuhusu Sisi','Ziara','Elimu','Booking','Mawasiliano'],welcome:'Karibu Zanzibar',hero:'Tembelea Zanzibar',heroDesc:'Gundua bahari ya kuvutia, utamaduni tajiri, matembezi ya kukumbukwa na ukarimu wa Zanzibar.',tourCta:'Angalia Ziara Zetu',bookCta:'Weka Nafasi',aboutTitle:'Safari Yako Inaanza na Zeyn Tours',aboutP1:'Zeyn Tours ni huduma ya utalii iliyopo Zanzibar inayowasaidia wageni kugundua uzuri wa asili, historia na utamaduni wa kisiwa.',aboutP2:'Kuanzia matembezi ya kuongozwa hadi mwongozo wa safari na elimu, tunalenga kufanya kila safari iwe rahisi kupanga na ya kukumbukwa.',aboutBtn:'Wasiliana Nasi',tourTitle:'Vifurushi Maarufu vya Ziara',eduTitle:'Elimu na Mwongozo wa Safari',galleryTitle:'Gundua Zanzibar',bookingTitle:'Weka Nafasi ya Ziara',contactTitle:'Wasiliana na Zeyn Tours',name:'Jina Kamili',phone:'Namba ya Simu / WhatsApp',tour:'Chagua Ziara',date:'Tarehe Unayopendelea',guests:'Idadi ya Wageni',message:'Maelezo ya Ziada',submit:'Tuma Ombi kupitia WhatsApp'},
+      ar:{nav:['الرئيسية','من نحن','الجولات','التعليم','الحجز','اتصل بنا'],welcome:'مرحباً بكم في زنجبار',hero:'اكتشف زنجبار',heroDesc:'اكتشف المياه الفيروزية والثقافة الغنية والمغامرات المميزة وكرم الضيافة في زنجبار.',tourCta:'اكتشف جولاتنا',bookCta:'احجز تجربتك',aboutTitle:'رحلتك تبدأ مع زين تورز',aboutP1:'زين تورز خدمة سياحية مقرها زنجبار تساعد الزوار على اكتشاف جمال الجزيرة الطبيعي وتاريخها وثقافتها.',aboutP2:'من الجولات المصحوبة بمرشدين إلى الإرشاد السياحي والتعليمي، نهدف إلى جعل كل رحلة سهلة التخطيط ولا تُنسى.',aboutBtn:'تواصل معنا',tourTitle:'باقات الجولات الشائعة',eduTitle:'التعليم والإرشاد السياحي',galleryTitle:'اكتشف زنجبار',bookingTitle:'احجز جولتك',contactTitle:'اتصل بزين تورز',name:'الاسم الكامل',phone:'رقم الهاتف أو واتساب',tour:'اختر الجولة',date:'التاريخ المفضل',guests:'عدد الضيوف',message:'تفاصيل إضافية',submit:'إرسال طلب الحجز عبر واتساب'},
+      fr:{nav:['Accueil','À propos','Excursions','Éducation','Réservation','Contact'],welcome:'Bienvenue à Zanzibar',hero:'Explorez Zanzibar',heroDesc:'Découvrez les eaux turquoise, la richesse culturelle, les aventures inoubliables et l’hospitalité chaleureuse de Zanzibar.',tourCta:'Voir nos excursions',bookCta:'Réserver votre expérience',aboutTitle:'Votre voyage commence avec Zeyn Tours',aboutP1:'Zeyn Tours est un service de tourisme basé à Zanzibar qui aide les visiteurs à découvrir la beauté naturelle, l’histoire et la culture de l’île.',aboutP2:'Des excursions guidées aux conseils pratiques sur les voyages et les études, nous souhaitons rendre chaque voyage accueillant et facile à organiser.',aboutBtn:'Nous contacter',tourTitle:'Forfaits d’excursions populaires',eduTitle:'Éducation et conseils de voyage',galleryTitle:'Explorez Zanzibar',bookingTitle:'Réservez votre excursion',contactTitle:'Contacter Zeyn Tours',name:'Nom complet',phone:'Téléphone / WhatsApp',tour:'Choisir une excursion',date:'Date souhaitée',guests:'Nombre de voyageurs',message:'Informations supplémentaires',submit:'Envoyer la demande via WhatsApp'}
+    };
+    const languageSelect=document.getElementById('site-language');
+    function setLanguage(lang){
+      const t=languageText[lang]||languageText.en;
+      document.documentElement.lang=lang;
+      document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+      document.querySelectorAll('nav a').forEach((el,i)=>{if(t.nav[i])el.textContent=t.nav[i]});
+      const set=(selector,value)=>{const el=document.querySelector(selector);if(el&&value)el.textContent=value};
+      set('.hero .eyebrow',t.welcome);set('.hero h1',t.hero);set('.hero-inner>p:not(.languages)',t.heroDesc);
+      set('.hero .btn:not(.btn-outline)',t.tourCta);set('.hero .btn-outline',t.bookCta);
+      set('#about h2',t.aboutTitle);set('#about .about p:nth-of-type(1)',t.aboutP1);set('#about .about p:nth-of-type(2)',t.aboutP2);set('#about .about .btn',t.aboutBtn);
+      set('#tours .section-head h2',t.tourTitle);set('#education .section-head h2',t.eduTitle);set('#gallery .section-head h2',t.galleryTitle);set('#booking .section-head h2',t.bookingTitle);set('#contact .section-head h2',t.contactTitle);
+      const labels=document.querySelectorAll('#booking-form label');const labelTexts=[t.name,t.phone,t.tour,t.date,t.guests,t.message];labels.forEach((el,i)=>{if(labelTexts[i])el.textContent=labelTexts[i]});
+      set('#booking-form button[type="submit"]',t.submit);
+    }
+    languageSelect.addEventListener('change',function(){setLanguage(this.value)});
+
     // Prevent visitors from selecting a date in the past.
     const preferredDate=document.getElementById('date');
     const today=new Date();
