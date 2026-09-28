@@ -11,15 +11,39 @@
 </head>
 <body>
   <main class="card">
+    <label for="thank-language" id="language-label">Language</label><br>
+    <select class="language" id="thank-language" aria-label="Choose language">
+      <option value="en">English</option><option value="sw">Kiswahili</option><option value="ar">العربية</option><option value="fr">Français</option>
+    </select>
     <div class="mark" aria-hidden="true">✓</div>
-    <h1>Thank You!</h1>
-    <p>Your booking request has been submitted to Zeyn Tours. Our team will review your details and contact you to confirm availability and the arrangements.</p>
-    <p class="note">Please note that your tour is not confirmed until our team contacts you. For urgent enquiries, you can reach us on WhatsApp at +255 656 506 868.</p>
+    <h1 id="thank-title">Thank You!</h1>
+    <p id="thank-message">Your booking request has been submitted to Zeyn Tours. Our team will review your details and contact you to confirm availability and the arrangements.</p>
+    <p class="note" id="thank-note">Please note that your tour is not confirmed until our team contacts you. For urgent enquiries, you can reach us on WhatsApp at +255 656 506 868.</p>
     <div class="actions">
-      <a class="primary" href="https://sacside21.github.io/zeyn-tours/">Back to Website</a>
-      <a class="secondary" href="https://wa.me/255656506868">Contact on WhatsApp</a>
+      <a class="primary" id="back-link" href="https://sacside21.github.io/zeyn-tours/">Back to Website</a>
+      <a class="secondary" id="whatsapp-link" href="https://wa.me/255656506868">Contact on WhatsApp</a>
     </div>
     <div class="brand">ZEYN TOURS · TRAVEL BEYOND BORDERS</div>
   </main>
-</body>
+  <script>
+    const thankYouText={
+      en:{label:'Language',title:'Thank You!',message:'Your booking request has been submitted to Zeyn Tours. Our team will review your details and contact you to confirm availability and the arrangements.',note:'Please note that your tour is not confirmed until our team contacts you. For urgent enquiries, you can reach us on WhatsApp at +255 656 506 868.',back:'Back to Website',whatsapp:'Contact on WhatsApp'},
+      sw:{label:'Lugha',title:'Asante!',message:'Ombi lako la booking limetumwa kwa Zeyn Tours. Timu yetu itapitia maelezo yako na kuwasiliana nawe kuthibitisha upatikanaji na mipango ya ziara.',note:'Tafadhali kumbuka kuwa ziara yako haijathibitishwa hadi timu yetu itakapowasiliana nawe. Kwa maulizo ya haraka, tupate WhatsApp kupitia +255 656 506 868.',back:'Rudi kwenye Tovuti',whatsapp:'Wasiliana nasi WhatsApp'},
+      ar:{label:'اللغة',title:'شكراً لك!',message:'تم إرسال طلب الحجز إلى زين تورز. سيراجع فريقنا التفاصيل ويتواصل معك لتأكيد التوفر والترتيبات.',note:'يرجى ملاحظة أن الجولة غير مؤكدة حتى يتواصل معك فريقنا. للاستفسارات العاجلة، يمكنك التواصل عبر واتساب على الرقم +255 656 506 868.',back:'العودة إلى الموقع',whatsapp:'تواصل عبر واتساب'},
+      fr:{label:'Langue',title:'Merci !',message:'Votre demande de réservation a été envoyée à Zeyn Tours. Notre équipe examinera vos informations et vous contactera pour confirmer la disponibilité et l’organisation.',note:'Veuillez noter que votre excursion n’est pas confirmée avant que notre équipe vous contacte. Pour toute demande urgente, écrivez-nous sur WhatsApp au +255 656 506 868.',back:'Retour au site',whatsapp:'Contacter sur WhatsApp'}
+    };
+    const languagePicker=document.getElementById('thank-language');
+    function setThankLanguage(lang){
+      const t=thankYouText[lang]||thankYouText.en;
+      document.documentElement.lang=lang;
+      document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+      document.getElementById('language-label').textContent=t.label;
+      document.getElementById('thank-title').textContent=t.title;
+      document.getElementById('thank-message').textContent=t.message;
+      document.getElementById('thank-note').textContent=t.note;
+      document.getElementById('back-link').textContent=t.back;
+      document.getElementById('whatsapp-link').textContent=t.whatsapp;
+    }
+    languagePicker.addEventListener('change',function(){setThankLanguage(this.value)});
+  </script></body>
 </html>
