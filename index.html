@@ -273,6 +273,7 @@
     document.querySelectorAll('.tour-book').forEach(function(button){
       button.addEventListener('click',function(){
         document.getElementById('tour').value=this.dataset.tour;
+        document.getElementById('tour').dispatchEvent(new Event('change', { bubbles: true }));
       });
     });
     const whatsappLink=document.querySelector('a.wa');
